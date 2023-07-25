@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  margin: 0;
+  background: linear-gradient(to right, #00AAFF,#00FF6C);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator-grid{
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(4,6rem); /*gives 4 columns of 6rem width*/
+  grid-template-rows:minmax(7rem,auto) repeat(5,6rem) ; /*set the height of the first row as 7 rem min or let it take the height it needs,i.e, it can expand. Sets the next five rows with 6rem height.*/
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.span_two{
+  grid-column: span 2; /*provides the space of two columns*/
+}
+
+.output{
+  grid-column: 1/ -1;  /*takes the entire row.*/
+  background-color: rgba(0, 0, 0,0.75);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.75rem;
+  word-wrap: break-word; /*allows long words to be able to break and wrap onto the next line.*/
+  word-break: break-all;  /*allows the word to be broken at any character, to prevent overflow*/
+}
+
+.output .previous_operand{
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+.output .current_operand{
   color: white;
+  font-size: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator-grid> button{
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator-grid> button:hover,
+.calculator-grid>button:focus{
+  background-color:rgba(255, 255, 255, 0.9);
 }
